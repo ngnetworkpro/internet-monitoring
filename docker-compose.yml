@@ -10,7 +10,7 @@ networks:
 
 services:
   prometheus:
-    image: prom/prometheus:v2.0.0
+    image: bitnami/prometheus
     volumes:
       - ./prometheus/:/etc/prometheus/
       - prometheus_data:/prometheus
@@ -49,9 +49,9 @@ services:
       - 9115
     ports:
       - 9115:9115
-    image: prom/blackbox-exporter
+    image: bitnami/blackbox-exporter
     volumes:
-      - ./blackbox/config:/config
+      - ./blackbox/config:/opt/bitnami/blackbox-exporter/conf/config.yml
     command:
       - '--config.file=/config/blackbox.yml'
     networks:
@@ -64,22 +64,10 @@ services:
       - 9696
     ports:
       - 9696:9696
-    image: stefanwalther/speedtest-exporter
+    image: truecharts/speedtest-exporter
     restart: always
     networks:
       - back-tier
-
-  sonos:
-    tty: true
-    stdin_open: true
-    expose: 
-      - 1915
-    ports:
-      - 1915:1915
-    image: maxandersen/sonos_exporter
-    command:
-      - '--address=0.0.0.0:1915'
-    network_mode: host
 
   nodeexp:
     privileged: true
