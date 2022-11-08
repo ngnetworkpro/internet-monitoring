@@ -1,6 +1,6 @@
 
 # A Docker Stack which Monitors your home network
-Here's a quick start to stand-up a Docker [Prometheus](http://prometheus.io/) stack containing Prometheus, Grafana with  [blackbox-exporter](https://github.com/prometheus/blackbox_exporter) and [speedtest-exporter](https://github.com/stefanwalther/speedtest-exporter) to collect and graph home network connections and speed.
+Here's a quick start to stand-up a Docker [Prometheus](http://prometheus.io/) stack containing Prometheus, Grafana with  [blackbox-exporter](https://github.com/prometheus/blackbox_exporter) and [speedtest-exporter](https://github.com/bitnami/speedtest-exporter) to collect and graph home network connections and speed.
 
 ## Pre-requisites
 Before we get started installing the Prometheus stack. Ensure you install the latest version of docker and [docker-compose](https://docs.docker.com/compose/install/) on your Docker host machine. This has been tested with Docker for Mac and Synology and it works.
@@ -10,13 +10,13 @@ Before we get started installing the Prometheus stack. Ensure you install the la
 If on Mac run this:
 
 ```
-git clone https://github.com/maxandersen/internet-monitoring && cd internet-monitoring/prometheus && docker-compose up && open http://localhost:3030/d/o9mIe_Aik/internet-connection
+git clone https://github.com/ngnetworkpro/internet-monitoring && cd internet-monitoring/prometheus && docker-compose up && open http://localhost:3030/d/o9mIe_Aik/internet-connection
 ```
 
 otherwise:
 
 ```
-git clone https://github.com/maxandersen/internet-monitoring
+git clone https://github.com/ngnetworkpro/internet-monitoring
 cd internet-monitoring/prometheus
 docker-compose up
 ```
