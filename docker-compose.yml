@@ -51,7 +51,7 @@ services:
       - 9115:9115
     image: bitnami/blackbox-exporter
     volumes:
-      - ./blackbox/config:/opt/bitnami/blackbox-exporter/conf/config.yml
+      - ./blackbox/config:/config
     command:
       - '--config.file=/config/blackbox.yml'
     networks:
@@ -61,11 +61,11 @@ services:
     tty: true
     stdin_open: true
     expose:
-      - 9696
+      - 9798
     ports:
-      - 9696:9696
-    image: truecharts/speedtest-exporter
-    restart: always
+      - 9798:9798
+    image: 	ghcr.io/miguelndecarvalho/speedtest-exporter
+    restart: unless-stopped
     networks:
       - back-tier
 
